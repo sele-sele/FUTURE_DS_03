@@ -1,136 +1,131 @@
-# E-Commerce Conversion Performance Analysis (Power BI)
+# E-Commerce Conversion Performance Analysis (Python)
 
 ## Overview
-This project focuses on analyzing an e-commerce marketing funnel using **Power BI** to understand user behavior from **Visitors → Leads → Customers**.  
+This project analyzes e-commerce funnel data using **Python** to understand how users move through the customer journey from **Visitors → Leads → Customers**.
 
-The goal was to identify conversion rates, detect drop-off points, evaluate category performance, and provide actionable recommendations to improve business outcomes.
+The analysis focuses on:
+- cleaning and structuring funnel data
+- measuring conversion performance
+- identifying drop-off points
+- comparing category performance
+- analyzing trends over time
+- providing actionable recommendations
 
+The final output is a dashboard-style visualization built with Python
 
 ## Objectives
-The analysis aimed to:
+The project was designed to answer the following questions:
 
-- Measure **traffic-to-lead conversion**
-- Measure **lead-to-customer conversion**
-- Identify **drop-off points** in the funnel
-- Compare performance across **product categories**
-- Analyze **conversion trends over time**
-- Provide **data-driven recommendations**
-
+- How many users move from Visitors to Leads to Customers?
+- What is the **Traffic-to-Lead conversion rate**?
+- What is the **Lead-to-Customer conversion rate**?
+- Where do the biggest **drop-off points** occur?
+- Which product categories contribute most to conversions?
+- How does conversion activity change over time?
+- What recommendations can improve conversions?
 
 ## Dataset Description
-The dataset contains e-commerce user activity including:
+The dataset contains e-commerce event-level data with the following fields:
 
-- `event_time` — timestamp of activity  
-- `event_type` — user action (`view`, `cart`, `purchase`)  
-- `product_id` — product identifier  
-- `category_code` — product category  
-- `brand` — product brand  
-- `price` — product price  
-- `user_id` — unique user identifier  
-- `user_session` — session identifier  
-
-
-## Data Cleaning (Power BI)
-Data was cleaned and prepared using **Power Query Editor**:
-
-- Converted `event_time` to **Date/Time format**
-- Removed **null values**
-- Extracted simplified categories from `category_code`
-- Created new columns for analysis (Date, Category group)
-- Ensured correct **data types**
-- Combined datasets (October & November) using **Append Queries**
+- `event_time` — timestamp of user activity
+- `event_type` — interaction type (`view`, `cart`, `purchase`)
+- `product_id` — product identifier
+- `category_id` — category identifier
+- `category_code` — product category path
+- `brand` — product brand
+- `price` — product price
+- `user_id` — unique user identifier
+- `user_session` — session identifier
 
 
-## Data Modeling & Measures (DAX)
-Key metrics were created using **DAX**:
+## Funnel Definition
+The funnel was defined as:
 
-### Funnel Metrics
-- Visitors = DISTINCTCOUNT of users who viewed products  
-- Leads = DISTINCTCOUNT of users who added to cart or purchased  
-- Customers = DISTINCTCOUNT of users who purchased  
+- **Visitors** = unique users who performed a `view`
+- **Leads** = unique users who performed `cart` or `purchase`
+- **Customers** = unique users who performed a `purchase`
 
-### Conversion Rates
-- Traffic-to-Lead Conversion  
-- Lead-to-Customer Conversion  
+This approach was used to keep the funnel logically consistent in cases where some users had purchase events without a separately recorded cart event.
 
-### Drop-Off Analysis
-- Visitors → Leads drop-off  
-- Leads → Customers drop-off  
 
+## Data Cleaning and Preparation
+The following preprocessing steps were performed:
+
+- Converted `event_time` into datetime format
+- Created a `Date` column for time-based analysis
+- Handled missing values in `category_code`
+- Extracted simplified category labels from `category_code`
+- Removed `"unknown"` categories from category-level visuals
+- Used **unique users** for funnel KPIs
+- Used **rolling averages** for trend visualization
+
+---
+
+## Tools and Libraries
+- **Python**
+- **Pandas**
+- **Matplotlib**
+- **NumPy**
+
+
+## Key Metrics
+The analysis includes the following KPI metrics:
+
+- Visitors
+- Leads
+- Customers
+- Traffic-to-Lead Conversion Rate
+- Lead-to-Customer Conversion Rate
+- Drop-off from Visitors to Leads
+- Drop-off from Leads to Customers
 
 ## Dashboard Components
+The final dashboard includes:
 
-<img width="931" height="503" alt="image" src="https://github.com/user-attachments/assets/4b152097-a094-4416-844e-a596adbdaea1" />
-
-The Power BI dashboard includes:
-
-### 1. KPI Cards
-- Visitors  
-- Leads  
-- Customers  
+### 1. KPI Metrics
+- Visitors
+- Leads
+- Customers
 
 ### 2. Conversion Funnel
-- Visual representation of user journey  
-- Highlights drop-off between stages  
+- Visual representation of the user journey
 
 ### 3. Conversion Metrics
-- Traffic-to-Lead (%)  
-- Lead-to-Customer (%)  
+- Traffic-to-Lead %
+- Lead-to-Customer %
 
 ### 4. Top Product Categories
-- Categories generating the most conversions  
+- Categories generating the most purchase events
 
-### 5. Lead Source Performance
-- Comparison of Leads vs Customers by category  
+### 5. Lead Sources Performance
+- Comparison of Leads vs Customers by category
 
 ### 6. Conversion Trend Over Time
-- Time-based trend analysis using Date hierarchy  
+- Trend of cart and purchase behavior over time
 
-### 7. Insights & Recommendations Panel
-- Key findings and business recommendations  
-
+### 7. Insights and Recommendations
+- Key findings
+- Drop-off analysis
+- Business recommendations
 
 ## Key Insights
-- There is a **significant drop-off from Visitors to Leads**, indicating a need to improve engagement.
-- **Lead-to-Customer conversion is relatively strong**, showing effective conversion once interest is established.
-- Certain categories ( smartphones) dominate conversions.
-- Conversion performance varies over time, highlighting trends in user behavior.
+Some of the main findings include:
+
+- There is a **significant drop-off from Visitors to Leads**, indicating that initial engagement is weak.
+- The **Lead-to-Customer conversion rate is relatively strong**, showing that users with purchase intent are more likely to convert.
+- A few categories dominate conversions, with **smartphone-related products** performing best.
+- Conversion activity changes over time, revealing useful behavioral trends.
 
 
 ## Recommendations
-- Improve landing pages and product descriptions to increase initial conversion  
-- Retarget users who do not proceed beyond browsing  
-- Focus marketing efforts on high-performing categories  
-- Optimize underperforming categories for better engagement  
-- Continuously monitor trends to adjust strategies  
+recommendations include:
+
+- Improve landing page experience and calls-to-action to increase visitor-to-lead conversion
+- Retarget users who browse but do not show purchase intent
+- Prioritize high-performing categories in campaigns and merchandising
+- Optimize low-performing categories for better engagement
+- Track time-based conversion trends to improve strategy decisions
 
 
-## Tools Used
-- **Power BI**
-  - Power Query (Data Cleaning)
-  - DAX (Measures & KPIs)
-  - Data Modeling
-  - Dashboard Design & Visualization  
-
-## Project Output
-The final deliverable is an interactive **Power BI dashboard** showing:
-
-- Funnel performance  
-- Conversion rates  
-- Category insights  
-- Trend analysis  
-- Business recommendations  
-
-
-## Learning Outcomes
-Through this project, I developed skills in:
-
-- Power BI data transformation (Power Query)  
-- DAX measure creation  
-- Funnel and conversion analysis  
-- Dashboard design and storytelling  
-- Turning raw data into actionable insights  
-
-
-## Author
+## Project Author
 **Sereya Nchoe**
