@@ -5,7 +5,6 @@ This project focuses on analyzing an e-commerce marketing funnel using **Power B
 
 The goal was to identify conversion rates, detect drop-off points, evaluate category performance, and provide actionable recommendations to improve business outcomes.
 
----
 
 ## Objectives
 The analysis aimed to:
@@ -17,7 +16,6 @@ The analysis aimed to:
 - Analyze **conversion trends over time**
 - Provide **data-driven recommendations**
 
----
 
 ## Dataset Description
 The dataset contains e-commerce user activity including:
@@ -31,7 +29,6 @@ The dataset contains e-commerce user activity including:
 - `user_id` — unique user identifier  
 - `user_session` — session identifier  
 
----
 
 ## Data Cleaning (Power BI)
 Data was cleaned and prepared using **Power Query Editor**:
@@ -43,7 +40,6 @@ Data was cleaned and prepared using **Power Query Editor**:
 - Ensured correct **data types**
 - Combined datasets (October & November) using **Append Queries**
 
----
 
 ## Data Modeling & Measures (DAX)
 Key metrics were created using **DAX**:
@@ -61,7 +57,6 @@ Key metrics were created using **DAX**:
 - Visitors → Leads drop-off  
 - Leads → Customers drop-off  
 
----
 
 ## Dashboard Components
 
@@ -94,7 +89,6 @@ The Power BI dashboard includes:
 ### 7. Insights & Recommendations Panel
 - Key findings and business recommendations  
 
----
 
 ## Key Insights
 - There is a **significant drop-off from Visitors to Leads**, indicating a need to improve engagement.
@@ -102,7 +96,6 @@ The Power BI dashboard includes:
 - Certain categories ( smartphones) dominate conversions.
 - Conversion performance varies over time, highlighting trends in user behavior.
 
----
 
 ## Recommendations
 - Improve landing pages and product descriptions to increase initial conversion  
@@ -111,7 +104,6 @@ The Power BI dashboard includes:
 - Optimize underperforming categories for better engagement  
 - Continuously monitor trends to adjust strategies  
 
----
 
 ## Tools Used
 - **Power BI**
@@ -119,8 +111,6 @@ The Power BI dashboard includes:
   - DAX (Measures & KPIs)
   - Data Modeling
   - Dashboard Design & Visualization  
-
----
 
 ## Project Output
 The final deliverable is an interactive **Power BI dashboard** showing:
@@ -131,7 +121,6 @@ The final deliverable is an interactive **Power BI dashboard** showing:
 - Trend analysis  
 - Business recommendations  
 
----
 
 ## Learning Outcomes
 Through this project, I developed skills in:
@@ -142,7 +131,6 @@ Through this project, I developed skills in:
 - Dashboard design and storytelling  
 - Turning raw data into actionable insights  
 
----
 
 ## Author
 **Sereya Nchoe**
